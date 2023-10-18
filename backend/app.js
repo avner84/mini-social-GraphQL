@@ -1,4 +1,5 @@
 const path = require('path');
+require('dotenv').config();
 const { v4: uuidv4 } = require('uuid');
 
 const express = require('express');
@@ -103,7 +104,7 @@ app.use((error, req, res, next) => {
 
 mongoose
   .connect(
-    'mongodb+srv://avner:avner300@cluster0.94z4qib.mongodb.net/messages?retryWrites=true&w=majority',
+    process.env.MONGODB_URI,
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
